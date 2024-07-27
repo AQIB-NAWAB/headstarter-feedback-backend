@@ -31,11 +31,12 @@ app.get("/api/updates",async (req,res) => {
 
 app.post("/api/comments",async (req,res) => {
 
-    const { comment, type } = req.body;
+    const { comment, type,title } = req.body;
 
     const newComment = new Comment({
         comment,
-        type
+        type,
+        title
     });
 
 
