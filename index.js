@@ -25,12 +25,14 @@ connectDB();
 
 
 app.get("/api/comments",async (req,res) => {
-    const comments = await Comment.find({});
+
+    const comments = await Comment.find({}).sort({createdAt: -1});
+    
     res.json(comments);
 });
 
 app.get("/api/updates",async (req,res) => {
-    const updates = await Update.find({});
+    const updates = await Update.find({}).sort({createdAt: -1});
     res.json(updates);
 })
 
@@ -43,7 +45,8 @@ app.post("/api/comments",async (req,res) => {
         comment,
         type,
         title
-    });
+    })
+    ;
 
 
     const savedComment = await newComment.save();
