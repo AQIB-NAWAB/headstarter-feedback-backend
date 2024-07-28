@@ -32,7 +32,7 @@ app.get("/api/comments",async (req,res) => {
 });
 
 app.get("/api/updates",async (req,res) => {
-    const updates = await Update.find({}).sort({createdAt: -1});
+    const updates = await Update.find({}).sort({createdAt: -1}).limit(10);
     res.json(updates);
 })
 
