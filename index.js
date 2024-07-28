@@ -67,6 +67,11 @@ app.post("/api/updates",async (req,res) => {
         description
     });
 
+    const savedUpdate = await newUpdate.save();
+
+
+    res.json(savedUpdate);
+
 });
 
 
